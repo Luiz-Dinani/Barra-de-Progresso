@@ -233,11 +233,28 @@ public class Tela1 extends javax.swing.JFrame {
         Double newCPUMin = newCPUMax*random.nextDouble();
         Double newDiscoMin = newDiscoMax*random.nextDouble();
         Double newMemoriaMin = newMemoriaMax*random.nextDouble();
+        
         //Define novas Médias
         Double newCPUMed = (newCPUMax+newCPUMin)/2;
         Double newDiscoMed = (newDiscoMax+newDiscoMin)/2;
         Double newMemoriaMed = (newMemoriaMax+newMemoriaMin)/2;
-                
+        
+        //Atualizar Máximo nas Labels
+        lblMaxCPU.setText(String.format("Máximo: %d%%", newCPUMax));
+        lblMaxDisco.setText(String.format("Máximo: %d%%", newDiscoMax));
+        lblMaxMemoria.setText(String.format("Máximo: %d%%", newMemoriaMax));
+        
+        //Atualizar Média nas Labels
+        lblMedCPU.setText(String.format("Mínimo: :.2f%%", newCPUMed));
+        lblMedDisco.setText(String.format("Mínimo: :.2f%%", newDiscoMed));
+        lblMedMemoria.setText(String.format("Mínimo: :.2f%%", newMemoriaMed));
+        
+        //Atualizar Mínimo nas Labels
+        lblMinCPU.setText(String.format("Mínimo: :.2f%%", newCPUMin));
+        lblMinDisco.setText(String.format("Mínimo: :.2f%%", newDiscoMin));
+        lblMinMemoria.setText(String.format("Mínimo: :.2f%%", newMemoriaMin));
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
