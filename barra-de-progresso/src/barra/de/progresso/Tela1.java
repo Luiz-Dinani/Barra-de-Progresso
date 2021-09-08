@@ -251,16 +251,20 @@ public class Tela1 extends javax.swing.JFrame {
         Double newMemoriaMed = (newMemoriaMax+newMemoriaMin)/2;
         
         //Define novos atuais
-        Integer newCPUAtual = (int)(newCPUMed*random.nextDouble()); //O (int) serve para converter Double para Int
-        Integer newDiscoAtual = (int)(newDiscoMed*random.nextDouble());
-        Integer newMemoriaAtual = (int)(newMemoriaMed*random.nextDouble());
+        Integer newCPUAtual = (int)(newCPUMax*random.nextDouble()); //O (int) serve para converter Double para Int
+        Integer newDiscoAtual = (int)(newDiscoMax*random.nextDouble());
+        Integer newMemoriaAtual = (int)(newMemoriaMax*random.nextDouble());
         
         
         if(newCPUAtual<newCPUMin){
            newCPUMin=(double)newCPUAtual; //O (double serve pra converter Int pra Double)
-        }else if(newDiscoAtual<newDiscoMin){
+        }
+        
+        if(newDiscoAtual<newDiscoMin){
            newDiscoMin=(double)newDiscoAtual; //O (double serve pra converter Int pra Double)
-        }else if(newMemoriaAtual<newMemoriaMin){
+        }
+        
+        if(newMemoriaAtual<newMemoriaMin){
            newMemoriaMin=(double)newMemoriaAtual; //O (double serve pra converter Int pra Double)
         }
         
