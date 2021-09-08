@@ -34,7 +34,7 @@ public class Tela1 extends javax.swing.JFrame {
         lblDisco = new javax.swing.JLabel();
         lblMemoria = new javax.swing.JLabel();
         barraCPU = new javax.swing.JProgressBar();
-        barraDIsco = new javax.swing.JProgressBar();
+        barraDisco = new javax.swing.JProgressBar();
         barraMemoria = new javax.swing.JProgressBar();
         lblMaxCPU = new javax.swing.JLabel();
         lblMinCPU = new javax.swing.JLabel();
@@ -69,6 +69,16 @@ public class Tela1 extends javax.swing.JFrame {
         lblMemoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMemoria.setText("Memória");
         lblMemoria.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        barraCPU.setValue(75);
+        barraCPU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        barraCPU.setStringPainted(true);
+
+        barraDisco.setValue(65);
+        barraDisco.setStringPainted(true);
+
+        barraMemoria.setValue(80);
+        barraMemoria.setStringPainted(true);
 
         lblMaxCPU.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblMaxCPU.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -154,7 +164,7 @@ public class Tela1 extends javax.swing.JFrame {
                                                 .addGap(212, 212, 212)
                                                 .addComponent(lblMaxMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(barraDIsco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(barraDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(barraMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
@@ -195,7 +205,7 @@ public class Tela1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(barraDIsco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(barraDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(barraCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(barraMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -229,6 +239,7 @@ public class Tela1 extends javax.swing.JFrame {
         Integer newCPUMax = random.nextInt(101);
         Integer newDiscoMax = random.nextInt(101);
         Integer newMemoriaMax = random.nextInt(101);
+        
         //Define novas Mínimas
         Double newCPUMin = newCPUMax*random.nextDouble();
         Double newDiscoMin = newDiscoMax*random.nextDouble();
@@ -254,7 +265,15 @@ public class Tela1 extends javax.swing.JFrame {
         lblMinDisco.setText(String.format("Mínimo: :.2f%%", newDiscoMin));
         lblMinMemoria.setText(String.format("Mínimo: :.2f%%", newMemoriaMin));
 
+        //Define novos atuais
+        Integer newCPUAtual = newCPUMax*(1-random.nextInt());
+        Integer newDiscoAtual = newDiscoMax*(1-random.nextInt());
+        Integer newMemoriaAtual = newMemoriaMax*(1-random.nextInt());
         
+        //Att Valores das Barras
+        barraCPU.setValue(newCPUAtual);        
+        barraDisco.setValue(newDiscoAtual);
+        barraMemoria.setValue(newMemoriaAtual);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -294,7 +313,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barraCPU;
-    private javax.swing.JProgressBar barraDIsco;
+    private javax.swing.JProgressBar barraDisco;
     private javax.swing.JProgressBar barraMemoria;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblCPU;
