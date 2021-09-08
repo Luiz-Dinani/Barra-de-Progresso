@@ -254,8 +254,7 @@ public class Tela1 extends javax.swing.JFrame {
         Integer newCPUAtual = (int)(newCPUMax*random.nextDouble()); //O (int) serve para converter Double para Int
         Integer newDiscoAtual = (int)(newDiscoMax*random.nextDouble());
         Integer newMemoriaAtual = (int)(newMemoriaMax*random.nextDouble());
-        
-        
+                
         if(newCPUAtual<newCPUMin){
            newCPUMin=(double)newCPUAtual; //O (double serve pra converter Int pra Double)
         }
@@ -267,8 +266,7 @@ public class Tela1 extends javax.swing.JFrame {
         if(newMemoriaAtual<newMemoriaMin){
            newMemoriaMin=(double)newMemoriaAtual; //O (double serve pra converter Int pra Double)
         }
-        
-        
+                
         //Atualizar Máximo nas Labels
         lblMaxCPU.setText(String.format("Máximo: %d%%", newCPUMax));
         lblMaxDisco.setText(String.format("Máximo: %d%%", newDiscoMax));
