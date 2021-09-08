@@ -250,27 +250,37 @@ public class Tela1 extends javax.swing.JFrame {
         Double newDiscoMed = (newDiscoMax+newDiscoMin)/2;
         Double newMemoriaMed = (newMemoriaMax+newMemoriaMin)/2;
         
+        //Define novos atuais
+        Integer newCPUAtual = (int)(newCPUMed*random.nextDouble()); //O (int) serve para converter Double para Int
+        Integer newDiscoAtual = (int)(newDiscoMed*random.nextDouble());
+        Integer newMemoriaAtual = (int)(newMemoriaMed*random.nextDouble());
+        
+        
+        if(newCPUAtual<newCPUMin){
+           newCPUMin=(double)newCPUAtual; //O (double serve pra converter Int pra Double)
+        }else if(newDiscoAtual<newDiscoMin){
+           newDiscoMin=(double)newDiscoAtual; //O (double serve pra converter Int pra Double)
+        }else if(newMemoriaAtual<newMemoriaMin){
+           newMemoriaMin=(double)newMemoriaAtual; //O (double serve pra converter Int pra Double)
+        }
+        
+        
         //Atualizar Máximo nas Labels
         lblMaxCPU.setText(String.format("Máximo: %d%%", newCPUMax));
         lblMaxDisco.setText(String.format("Máximo: %d%%", newDiscoMax));
         lblMaxMemoria.setText(String.format("Máximo: %d%%", newMemoriaMax));
         
         //Atualizar Média nas Labels
-        lblMedCPU.setText(String.format("Mínimo: :.2f%%", newCPUMed));
-        lblMedDisco.setText(String.format("Mínimo: :.2f%%", newDiscoMed));
-        lblMedMemoria.setText(String.format("Mínimo: :.2f%%", newMemoriaMed));
+        lblMedCPU.setText(String.format("Média: %.2f%%", newCPUMed));
+        lblMedDisco.setText(String.format("Média: %.2f%%", newDiscoMed));
+        lblMedMemoria.setText(String.format("Média: %.2f%%", newMemoriaMed));
         
         //Atualizar Mínimo nas Labels
-        lblMinCPU.setText(String.format("Mínimo: :.2f%%", newCPUMin));
-        lblMinDisco.setText(String.format("Mínimo: :.2f%%", newDiscoMin));
-        lblMinMemoria.setText(String.format("Mínimo: :.2f%%", newMemoriaMin));
-
-        //Define novos atuais
-        Integer newCPUAtual = newCPUMax*(1-random.nextInt());
-        Integer newDiscoAtual = newDiscoMax*(1-random.nextInt());
-        Integer newMemoriaAtual = newMemoriaMax*(1-random.nextInt());
+        lblMinCPU.setText(String.format("Mínimo: %.2f%%", newCPUMin));
+        lblMinDisco.setText(String.format("Mínimo: %.2f%%", newDiscoMin));
+        lblMinMemoria.setText(String.format("Mínimo: %.2f%%", newMemoriaMin));
         
-        //Att Valores das Barras
+        //Att Valores das Barras (Devem ser inteiros, por usei o (int)
         barraCPU.setValue(newCPUAtual);        
         barraDisco.setValue(newDiscoAtual);
         barraMemoria.setValue(newMemoriaAtual);
